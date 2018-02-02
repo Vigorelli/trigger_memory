@@ -1,0 +1,7 @@
+#all files
+*
+
+# include only .vhd and this file
+
+!*.vhd
+!.gitignore
