@@ -1,0 +1,93 @@
+[*]
+[*] GTKWave Analyzer v3.3.87 (w)1999-2017 BSI
+[*] Mon Jan 29 13:56:55 2018
+[*]
+[dumpfile] "/Users/Lorenzo/Documents/Università/Magistrale/Tesi/Mermory Structure/dual_port_ram_tb.ghw"
+[dumpfile_mtime] "Mon Jan 29 13:52:09 2018"
+[dumpfile_size] 1636
+[savefile] "/Users/Lorenzo/Documents/Università/Magistrale/Tesi/Mermory Structure/stuff/Untitled.gtkw"
+[timestart] 0
+[size] 1889 949
+[pos] -1 -1
+*-27.000000 51600000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 193
+[signals_width] 159
+[sst_expanded] 1
+[sst_vpaned_height] 289
+@28
+top.dual_port_ram_tb.ce_sym
+@22
+#{top.dual_port_ram_tb.o_addr_sym[3:0]} top.dual_port_ram_tb.o_addr_sym[3] top.dual_port_ram_tb.o_addr_sym[2] top.dual_port_ram_tb.o_addr_sym[1] top.dual_port_ram_tb.o_addr_sym[0]
+@28
+top.dual_port_ram_tb.o_data_sym
+top.dual_port_ram_tb.oe_sym
+top.dual_port_ram_tb.uut.ce
+@22
+#{top.dual_port_ram_tb.uut.cell_array.d_array[15:0]} top.dual_port_ram_tb.uut.cell_array.d_array[15] top.dual_port_ram_tb.uut.cell_array.d_array[14] top.dual_port_ram_tb.uut.cell_array.d_array[13] top.dual_port_ram_tb.uut.cell_array.d_array[12] top.dual_port_ram_tb.uut.cell_array.d_array[11] top.dual_port_ram_tb.uut.cell_array.d_array[10] top.dual_port_ram_tb.uut.cell_array.d_array[9] top.dual_port_ram_tb.uut.cell_array.d_array[8] top.dual_port_ram_tb.uut.cell_array.d_array[7] top.dual_port_ram_tb.uut.cell_array.d_array[6] top.dual_port_ram_tb.uut.cell_array.d_array[5] top.dual_port_ram_tb.uut.cell_array.d_array[4] top.dual_port_ram_tb.uut.cell_array.d_array[3] top.dual_port_ram_tb.uut.cell_array.d_array[2] top.dual_port_ram_tb.uut.cell_array.d_array[1] top.dual_port_ram_tb.uut.cell_array.d_array[0]
+#{top.dual_port_ram_tb.uut.cell_array.o_col[3:0]} top.dual_port_ram_tb.uut.cell_array.o_col[3] top.dual_port_ram_tb.uut.cell_array.o_col[2] top.dual_port_ram_tb.uut.cell_array.o_col[1] top.dual_port_ram_tb.uut.cell_array.o_col[0]
+@28
+top.dual_port_ram_tb.uut.cell_array.o_d
+@22
+#{top.dual_port_ram_tb.uut.cell_array.o_row[3:0]} top.dual_port_ram_tb.uut.cell_array.o_row[3] top.dual_port_ram_tb.uut.cell_array.o_row[2] top.dual_port_ram_tb.uut.cell_array.o_row[1] top.dual_port_ram_tb.uut.cell_array.o_row[0]
+#{top.dual_port_ram_tb.uut.cell_array.w_col[3:0]} top.dual_port_ram_tb.uut.cell_array.w_col[3] top.dual_port_ram_tb.uut.cell_array.w_col[2] top.dual_port_ram_tb.uut.cell_array.w_col[1] top.dual_port_ram_tb.uut.cell_array.w_col[0]
+@28
+top.dual_port_ram_tb.uut.cell_array.w_d
+@22
+#{top.dual_port_ram_tb.uut.cell_array.w_row[3:0]} top.dual_port_ram_tb.uut.cell_array.w_row[3] top.dual_port_ram_tb.uut.cell_array.w_row[2] top.dual_port_ram_tb.uut.cell_array.w_row[1] top.dual_port_ram_tb.uut.cell_array.w_row[0]
+#{top.dual_port_ram_tb.uut.o_addr[3:0]} top.dual_port_ram_tb.uut.o_addr[3] top.dual_port_ram_tb.uut.o_addr[2] top.dual_port_ram_tb.uut.o_addr[1] top.dual_port_ram_tb.uut.o_addr[0]
+@28
+top.dual_port_ram_tb.uut.o_array
+@22
+#{top.dual_port_ram_tb.uut.o_col[3:0]} top.dual_port_ram_tb.uut.o_col[3] top.dual_port_ram_tb.uut.o_col[2] top.dual_port_ram_tb.uut.o_col[1] top.dual_port_ram_tb.uut.o_col[0]
+@28
+#{top.dual_port_ram_tb.uut.o_col_dec.addr[1:0]} top.dual_port_ram_tb.uut.o_col_dec.addr[1] top.dual_port_ram_tb.uut.o_col_dec.addr[0]
+@22
+#{top.dual_port_ram_tb.uut.o_col_dec.one_hot[3:0]} top.dual_port_ram_tb.uut.o_col_dec.one_hot[3] top.dual_port_ram_tb.uut.o_col_dec.one_hot[2] top.dual_port_ram_tb.uut.o_col_dec.one_hot[1] top.dual_port_ram_tb.uut.o_col_dec.one_hot[0]
+@28
+top.dual_port_ram_tb.uut.o_data
+top.dual_port_ram_tb.uut.o_enabler.ae
+top.dual_port_ram_tb.uut.o_enabler.be
+top.dual_port_ram_tb.uut.o_enabler.control
+top.dual_port_ram_tb.uut.o_enabler.data_in
+top.dual_port_ram_tb.uut.o_enabler.data_out
+@22
+#{top.dual_port_ram_tb.uut.o_row[3:0]} top.dual_port_ram_tb.uut.o_row[3] top.dual_port_ram_tb.uut.o_row[2] top.dual_port_ram_tb.uut.o_row[1] top.dual_port_ram_tb.uut.o_row[0]
+@28
+#{top.dual_port_ram_tb.uut.o_row_dec.addr[1:0]} top.dual_port_ram_tb.uut.o_row_dec.addr[1] top.dual_port_ram_tb.uut.o_row_dec.addr[0]
+@22
+#{top.dual_port_ram_tb.uut.o_row_dec.one_hot[3:0]} top.dual_port_ram_tb.uut.o_row_dec.one_hot[3] top.dual_port_ram_tb.uut.o_row_dec.one_hot[2] top.dual_port_ram_tb.uut.o_row_dec.one_hot[1] top.dual_port_ram_tb.uut.o_row_dec.one_hot[0]
+@28
+top.dual_port_ram_tb.uut.oe
+@22
+#{top.dual_port_ram_tb.uut.w_addr[3:0]} top.dual_port_ram_tb.uut.w_addr[3] top.dual_port_ram_tb.uut.w_addr[2] top.dual_port_ram_tb.uut.w_addr[1] top.dual_port_ram_tb.uut.w_addr[0]
+@29
+top.dual_port_ram_tb.uut.w_array
+@22
+#{top.dual_port_ram_tb.uut.w_col[3:0]} top.dual_port_ram_tb.uut.w_col[3] top.dual_port_ram_tb.uut.w_col[2] top.dual_port_ram_tb.uut.w_col[1] top.dual_port_ram_tb.uut.w_col[0]
+@28
+#{top.dual_port_ram_tb.uut.w_col_dec.addr[1:0]} top.dual_port_ram_tb.uut.w_col_dec.addr[1] top.dual_port_ram_tb.uut.w_col_dec.addr[0]
+@22
+#{top.dual_port_ram_tb.uut.w_col_dec.one_hot[3:0]} top.dual_port_ram_tb.uut.w_col_dec.one_hot[3] top.dual_port_ram_tb.uut.w_col_dec.one_hot[2] top.dual_port_ram_tb.uut.w_col_dec.one_hot[1] top.dual_port_ram_tb.uut.w_col_dec.one_hot[0]
+@28
+top.dual_port_ram_tb.uut.w_data
+top.dual_port_ram_tb.uut.w_enabler.ae
+top.dual_port_ram_tb.uut.w_enabler.be
+top.dual_port_ram_tb.uut.w_enabler.control
+top.dual_port_ram_tb.uut.w_enabler.data_in
+top.dual_port_ram_tb.uut.w_enabler.data_out
+@22
+#{top.dual_port_ram_tb.uut.w_row[3:0]} top.dual_port_ram_tb.uut.w_row[3] top.dual_port_ram_tb.uut.w_row[2] top.dual_port_ram_tb.uut.w_row[1] top.dual_port_ram_tb.uut.w_row[0]
+@28
+#{top.dual_port_ram_tb.uut.w_row_dec.addr[1:0]} top.dual_port_ram_tb.uut.w_row_dec.addr[1] top.dual_port_ram_tb.uut.w_row_dec.addr[0]
+@22
+#{top.dual_port_ram_tb.uut.w_row_dec.one_hot[3:0]} top.dual_port_ram_tb.uut.w_row_dec.one_hot[3] top.dual_port_ram_tb.uut.w_row_dec.one_hot[2] top.dual_port_ram_tb.uut.w_row_dec.one_hot[1] top.dual_port_ram_tb.uut.w_row_dec.one_hot[0]
+@28
+top.dual_port_ram_tb.uut.we
+@22
+#{top.dual_port_ram_tb.w_addr_sym[3:0]} top.dual_port_ram_tb.w_addr_sym[3] top.dual_port_ram_tb.w_addr_sym[2] top.dual_port_ram_tb.w_addr_sym[1] top.dual_port_ram_tb.w_addr_sym[0]
+@28
+top.dual_port_ram_tb.w_data_sym
+top.dual_port_ram_tb.we_sym
+[pattern_trace] 1
+[pattern_trace] 0
