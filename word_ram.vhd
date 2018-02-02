@@ -15,14 +15,14 @@ generic(
 port (	
 		ce : in std_logic;
 		we : in std_logic;
-		oe : in std_logic;
+		re : in std_logic;
 
 		w_addr : in std_logic_vector(rows+cols-1 downto 0);
-		o_addr : in std_logic_vector(rows+cols-1 downto 0);
+		r_addr : in std_logic_vector(rows+cols-1 downto 0);
 
 		w_data : in std_logic_vector(length-1 downto 0);
 		
-		o_data : out std_logic_vector(length-1 downto 0)
+		r_data : out std_logic_vector(length-1 downto 0)
 	);
 end word_ram;
 
@@ -30,11 +30,11 @@ architecture separate_mems of word_ram is
 
 	signal w_col : std_logic_vector(2**cols - 1 downto 0);
 	signal w_row : std_logic_vector(2**rows - 1 downto 0);
-	signal o_col : std_logic_vector(2**cols - 1 downto 0);
-	signal o_row : std_logic_vector(2**rows - 1 downto 0);
+	signal r_col : std_logic_vector(2**cols - 1 downto 0);
+	signal r_row : std_logic_vector(2**rows - 1 downto 0);
 
 	signal w_array : std_logic_vector(length -1 downto 0);
-	signal o_array : std_logic_vector(length -1 downto 0);
+	signal r_array : std_logic_vector(length -1 downto 0);
 	
 	
 		
@@ -56,12 +56,12 @@ architecture separate_mems of word_ram is
 		width : natural
 	);
 	port(
-		o_row : in std_logic_vector(height -1 downto 0);
-		o_col : in std_logic_vector(width -1 downto 0);
+		r_row : in std_logic_vector(height -1 downto 0);
+		r_col : in std_logic_vector(width -1 downto 0);
 		w_row : in std_logic_vector(height -1 downto 0);
 		w_col : in std_logic_vector(width -1 downto 0);
 		w_d : in std_logic;
-		o_d : out std_logic
+		r_d : out std_logic
 		);
 	end component;
 
@@ -78,8 +78,8 @@ begin
 
 	w_col_dec : tree_decoder
 	generic map(
-		size=>cols,
-		cell_width=>2
+		size => cols,
+		cell_width => 2
 	)
 	port map(
 		addr => w_addr(rows+cols-1 downto rows),
@@ -88,18 +88,18 @@ begin
 
 	o_col_dec : tree_decoder
 	generic map(
-		size=>cols,
-		cell_width=>2
+		size => cols,
+		cell_width => 2
 	)
 	port map(
-		addr => o_addr(rows+cols-1 downto rows),
-		one_hot => o_col
+		addr => r_addr(rows+cols-1 downto rows),
+		one_hot => r_col
 	);
 	
 	w_row_dec : tree_decoder
 	generic map(
-		size=>rows,
-		cell_width=>2
+		size => rows,
+		cell_width => 2
 	)
 	port map(
 		addr => w_addr(rows-1 downto 0),
@@ -108,13 +108,13 @@ begin
 
 	o_row_dec : tree_decoder
 	generic map(
-		size=>rows,
-		cell_width=>2
+		size => rows,
+		cell_width => 2
 	)
 	port map
 		(
-		addr => o_addr(rows-1 downto 0),
-		one_hot => o_row
+		addr => r_addr(rows-1 downto 0),
+		one_hot => r_row
 	);
 
 	
@@ -122,12 +122,12 @@ begin
 	word_memory:
 	for i in 0 to (length-1) generate
 
-		o_enabler : enabler
+		r_enabler : enabler
 		port map(
 			ae => ce,
-			be => oe,
-			data_in => o_array(i),
-			data_out => o_data(i)
+			be => re,
+			data_in => r_array(i),
+			data_out => r_data(i)
 		);
 
 		w_enabler : enabler
@@ -144,12 +144,12 @@ begin
 			width => 2**cols
 		)
 		port map(
-			o_row => o_row,
-			o_col => o_col,
+			r_row => r_row,
+			r_col => r_col,
 			w_row => w_row,
 			w_col => w_col,
 			w_d => w_array(i),
-			o_d => o_array(i)
+			r_d => r_array(i)
 		);
 	end generate;
 

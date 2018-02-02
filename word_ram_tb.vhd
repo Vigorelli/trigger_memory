@@ -21,14 +21,14 @@ architecture behavioral of word_ram_tb is
 	port (
 		ce : in std_logic;
 		we : in std_logic;
-		oe : in std_logic;
+		re : in std_logic;
 
 		w_addr : in std_logic_vector(rows+cols-1 downto 0);
-		o_addr : in std_logic_vector(rows+cols-1 downto 0);
+		r_addr : in std_logic_vector(rows+cols-1 downto 0);
 
 		w_data : in std_logic_vector(length - 1 downto 0);
           
-		o_data : out std_logic_vector(length - 1 downto 0)
+		r_data : out std_logic_vector(length - 1 downto 0)
 		);
 	END COMPONENT;
 	
@@ -37,16 +37,16 @@ architecture behavioral of word_ram_tb is
 	
 	signal ce_sym : std_logic := '0';
 	signal we_sym : std_logic := '0';
-	signal oe_sym : std_logic := '0';
+	signal re_sym : std_logic := '0';
 	
 	
 	signal w_addr_sym : std_logic_vector(4-1 downto 0) := "0000";
-	signal o_addr_sym : std_logic_vector(4-1 downto 0) := "0000";
+	signal r_addr_sym : std_logic_vector(4-1 downto 0) := "0000";
 
 	signal w_data_sym : std_logic_vector(3-1 downto 0) := "000";
 	
 	--Outputs
-	signal o_data_sym : std_logic_vector(3-1 downto 0);
+	signal r_data_sym : std_logic_vector(3-1 downto 0);
 	
 	-- Clock period definitions
 -- 	constant clk_100_period : time := 10 ns;
@@ -63,13 +63,13 @@ begin
 	port map (
 		ce => ce_sym,
 		we => we_sym,
-		oe => oe_sym,
+		re => re_sym,
 		
 		w_addr => w_addr_sym,
-		o_addr => o_addr_sym,
+		r_addr => r_addr_sym,
 		
 		w_data => w_data_sym,
-		o_data => o_data_sym
+		r_data => r_data_sym
 	);
 
    -- Stimulus process
@@ -77,7 +77,7 @@ begin
 	begin
 		ce_sym <= '1';
 		we_sym <= '1';
-		oe_sym <= '1';
+		re_sym <= '1';
 		w_addr_sym <= "0101";
 		w_data_sym <= "100";
 		
@@ -86,10 +86,10 @@ begin
 		w_data_sym <= "000";
 		
 	wait for 2 ns;
-		o_addr_sym <= "0101";
+		r_addr_sym <= "0101";
 		
 	wait for 50 ns;	--102ns
-		o_addr_sym <= "1000";
+		r_addr_sym <= "1000";
 		
 	wait for 40 ns; --142ns
 		w_addr_sym <= "0110";
@@ -100,10 +100,10 @@ begin
 		w_data_sym <= "001";
 		
 	wait for 40 ns;	--186ns
-		o_addr_sym <= "0110";
+		r_addr_sym <= "0110";
 		
 	wait for 20 ns;	--206ns
-		o_addr_sym <= "0100";
+		r_addr_sym <= "0100";
 
 	
 	wait for 40 ns; --246ns

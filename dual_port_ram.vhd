@@ -14,14 +14,14 @@ generic(
 port (	
 		ce : in std_logic;
 		we : in std_logic;
-		oe : in std_logic;
+		re : in std_logic;
 
 		w_addr : in std_logic_vector(rows+cols-1 downto 0);
-		o_addr : in std_logic_vector(rows+cols-1 downto 0);
+		r_addr : in std_logic_vector(rows+cols-1 downto 0);
 
 		w_data : in std_logic;
           
-		o_data : out std_logic
+		r_data : out std_logic
 	);
 end dual_port_ram;
 
@@ -29,11 +29,11 @@ architecture arch of dual_port_ram is
 
 	signal w_col : std_logic_vector(2**cols - 1 downto 0);
 	signal w_row : std_logic_vector(2**rows - 1 downto 0);
-	signal o_col : std_logic_vector(2**cols - 1 downto 0);
-	signal o_row : std_logic_vector(2**rows - 1 downto 0);
+	signal r_col : std_logic_vector(2**cols - 1 downto 0);
+	signal r_row : std_logic_vector(2**rows - 1 downto 0);
 
 	signal w_array : std_logic;
-	signal o_array : std_logic;
+	signal r_array : std_logic;
 	
 	
 	component decoder
@@ -53,12 +53,12 @@ architecture arch of dual_port_ram is
 		width : natural
 	);
 	port(
-		o_row : in std_logic_vector(height -1 downto 0);
-		o_col : in std_logic_vector(width -1 downto 0);
+		r_row : in std_logic_vector(height -1 downto 0);
+		r_col : in std_logic_vector(width -1 downto 0);
 		w_row : in std_logic_vector(height -1 downto 0);
 		w_col : in std_logic_vector(width -1 downto 0);
 		w_d : in std_logic;
-		o_d : out std_logic
+		r_d : out std_logic
 		);
 	end component;
 
@@ -109,12 +109,12 @@ begin
 		width => 2**cols
 	)
 	port map(
-		o_row => o_row,
-		o_col => o_col,
+		r_row => o_row,
+		r_col => o_col,
 		w_row => w_row,
 		w_col => w_col,
 		w_d => w_data,
-		o_d => o_data
+		r_d => o_data
 	);
 
 
