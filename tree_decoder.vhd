@@ -20,6 +20,7 @@ generic (
 	cell_width : natural
 	);
 port (
+		enable: in std_logic;
 		addr: in std_logic_vector(size - 1 downto 0);
 		one_hot: out std_logic_vector(2**size - 1 downto 0)
 	);
@@ -49,7 +50,7 @@ architecture arch of tree_decoder is
 
 begin
 
-	p(0)(0) <= '1';
+	p(0)(0) <= enable;
 	
 	cell_gen:
 	for i in 0 to (size/cell_width -2) generate
@@ -62,9 +63,8 @@ begin
 			port map(
 				enable => p(i)(j), --previous stage one hot 
 				addr => addr(size - i*cell_width -1 downto size - (i+1)*cell_width),
---sistemare qui!! dividere l'uscita tra le celle a cui serve!!
 				one_hot => p(i+1)(((j+1)*2**cell_width) - 1 downto j*2**cell_width) --following stage enable
-			);--(2**((i+1)*cell_width)
+			);
 		end generate;
 	end generate;
 

@@ -82,16 +82,18 @@ begin
 		cell_width => 2
 	)
 	port map(
+		enable => enable,
 		addr => w_addr(rows+cols-1 downto rows),
 		one_hot => w_col
 	);
 
-	o_col_dec : tree_decoder
+	r_col_dec : tree_decoder
 	generic map(
 		size => cols,
 		cell_width => 2
 	)
 	port map(
+		enable => enable,
 		addr => r_addr(rows+cols-1 downto rows),
 		one_hot => r_col
 	);
@@ -102,17 +104,18 @@ begin
 		cell_width => 2
 	)
 	port map(
+		enable => enable,
 		addr => w_addr(rows-1 downto 0),
 		one_hot => w_row
 	);
 
-	o_row_dec : tree_decoder
+	r_row_dec : tree_decoder
 	generic map(
 		size => rows,
 		cell_width => 2
 	)
-	port map
-		(
+	port map(
+		enable => enable,
 		addr => r_addr(rows-1 downto 0),
 		one_hot => r_row
 	);

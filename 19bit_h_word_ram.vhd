@@ -43,7 +43,7 @@ architecture arch of 19_bit_h_word_ram is
 		rows: natural;
 		length: natural
 		);
-	port (
+	port(
 		ce : in std_logic;
 		we : in std_logic;
 		re : in std_logic;
@@ -56,6 +56,11 @@ architecture arch of 19_bit_h_word_ram is
 		r_data : out std_logic_vector(length - 1 downto 0)
 		);
 	end component;
+	
+	component 19_h_encoder
+	
+	port(
+		
 	
 begin
 	

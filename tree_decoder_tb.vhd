@@ -18,6 +18,7 @@ architecture behavioral of tree_decoder_tb is
 		cell_width : natural
 	);
 	port (
+		enable : in std_logic;
 		addr: in std_logic_vector(size - 1 downto 0);
 		one_hot: out std_logic_vector(2**size - 1 downto 0)
 	);
@@ -43,13 +44,15 @@ begin
 		cell_width => 2
 	)
 	port map (
+		enable => enable_sym;
 		addr => addr_sym,
 		one_hot => one_hot_sym
 	);
-
+	
    -- Stimulus process
 	stim_proc: process
-	begin		
+	begin
+			enable_sym <= '1';
 			addr_sym <= "0000";
 		wait for 50 ns;
 			addr_sym <= "1000";

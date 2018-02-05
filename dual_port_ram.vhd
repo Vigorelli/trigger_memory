@@ -80,11 +80,11 @@ begin
 		one_hot => w_col
 	);
 
-	o_col_dec : decoder
+	r_col_dec : decoder
 	generic map(size=>cols)
 	port map(
-		addr => o_addr(rows+cols-1 downto rows),
-		one_hot => o_col
+		addr => r_addr(rows+cols-1 downto rows),
+		one_hot => r_col
 	);
 	
 	w_row_dec : decoder
@@ -94,12 +94,12 @@ begin
 		one_hot => w_row
 	);
 
-	o_row_dec : decoder
+	r_row_dec : decoder
 	generic map(size=>rows)
 	port map
 		(
-		addr => o_addr(rows-1 downto 0),
-		one_hot => o_row
+		addr => r_addr(rows-1 downto 0),
+		one_hot => r_row
 	);
 
 
@@ -109,21 +109,21 @@ begin
 		width => 2**cols
 	)
 	port map(
-		r_row => o_row,
-		r_col => o_col,
+		r_row => r_row,
+		r_col => r_col,
 		w_row => w_row,
 		w_col => w_col,
 		w_d => w_data,
-		r_d => o_data
+		r_d => r_data
 	);
 
 
-	o_enabler : enabler
+	r_enabler : enabler
 	port map(
 		ae => ce,
-		be => oe,
-		data_in => o_array,
-		data_out => o_data
+		be => re,
+		data_in => r_array,
+		data_out => r_data
 	);
 
 	w_enabler : enabler
