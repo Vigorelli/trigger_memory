@@ -37,6 +37,15 @@ architecture separate_mems of word_ram is
 	signal r_array : std_logic_vector(length -1 downto 0);
 	
 	
+	component keeper
+	generic(
+		size : natural
+	);
+	port(
+		data_in : in std_logic_vector(size-1 downto 0);
+		data_out : out std_logic_vector(size-1 downto 0)
+	);
+	end component;
 		
 	component tree_decoder
 	generic(
@@ -76,13 +85,22 @@ architecture separate_mems of word_ram is
 
 begin
 
+	w_driver : keeper
+	generic map(
+		size => length
+	)
+	port(
+		data_in => w_data,
+		data_out => w_array
+	);
+
 	w_col_dec : tree_decoder
 	generic map(
 		size => cols,
 		cell_width => 2
 	)
 	port map(
-		enable => enable,
+		enable => ce and we,
 		addr => w_addr(rows+cols-1 downto rows),
 		one_hot => w_col
 	);
@@ -93,7 +111,7 @@ begin
 		cell_width => 2
 	)
 	port map(
-		enable => enable,
+		enable => ce and re,
 		addr => r_addr(rows+cols-1 downto rows),
 		one_hot => r_col
 	);
@@ -104,7 +122,7 @@ begin
 		cell_width => 2
 	)
 	port map(
-		enable => enable,
+		enable => ce and we,
 		addr => w_addr(rows-1 downto 0),
 		one_hot => w_row
 	);
@@ -115,7 +133,7 @@ begin
 		cell_width => 2
 	)
 	port map(
-		enable => enable,
+		enable => ce and re,
 		addr => r_addr(rows-1 downto 0),
 		one_hot => r_row
 	);
@@ -125,21 +143,21 @@ begin
 	word_memory:
 	for i in 0 to (length-1) generate
 
-		r_enabler : enabler
-		port map(
-			ae => ce,
-			be => re,
-			data_in => r_array(i),
-			data_out => r_data(i)
-		);
-
-		w_enabler : enabler
-		port map(
-			ae => ce,
-			be => we,
-			data_in => w_data(i),
-			data_out => w_array(i)
-		);
+-- 		r_enabler : enabler
+-- 		port map(
+-- 			ae => ce,
+-- 			be => re,
+-- 			data_in => r_array(i),
+-- 			data_out => r_data(i)
+-- 		);
+-- 
+-- 		w_enabler : enabler
+-- 		port map(
+-- 			ae => ce,
+-- 			be => we,
+-- 			data_in => w_data(i),
+-- 			data_out => w_array(i)
+-- 		);
 
 		cell_array : memory_cell_array
 		generic map(

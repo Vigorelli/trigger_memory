@@ -28,11 +28,6 @@ end 19_bit_h_word_ram;
 
 architecture arch of 19_bit_h_word_ram is
 
-	signal w_col : std_logic_vector(2**cols - 1 downto 0);
-	signal w_row : std_logic_vector(2**rows - 1 downto 0);
-	signal r_col : std_logic_vector(2**cols - 1 downto 0);
-	signal r_row : std_logic_vector(2**rows - 1 downto 0);
-
 	signal w_array : std_logic_vector(length -1 downto 0);
 	signal r_array : std_logic_vector(length -1 downto 0);
 	
@@ -58,9 +53,11 @@ architecture arch of 19_bit_h_word_ram is
 	end component;
 	
 	component 19_h_encoder
-	
 	port(
-		
+		data : in std_logic_vector(14 downto 0);
+		coded : out std_logic_vector(19/18 downto 0);
+	);
+	end component;
 	
 begin
 	

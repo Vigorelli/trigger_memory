@@ -57,7 +57,8 @@ begin
 
 
 end behav;
--- 
+
+
 -- architecture arch of memory_cell_array is
 -- 
 -- 	type matrix is array (height-1 downto 0, width-1 downto 0)
