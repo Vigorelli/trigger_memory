@@ -10,15 +10,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- use IEEE.NUMERIC_STD.ALL;
 
 
-entity hamming is
+entity h_enc is
 port (
-		d: in std_logic_vector(14 - 1 dowmnto 0);
+		d: in std_logic_vector(14 - 1 downto 0);
 		code: out std_logic_vector(19 - 1 downto 0)
 	);
-end hamming;
+end h_enc;
 
 
-architecture arch of hamming is
+architecture arch of h_enc is
 
 begin
 

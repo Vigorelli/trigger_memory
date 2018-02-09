@@ -6,13 +6,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use IEEE.NUMERIC_STD.ALL;
 
 
-entity hamming_tb is
+entity h_enc_tb is
 --  Port ( );
-end hamming_tb;
+end h_enc_tb;
 
-architecture behavioral of hamming_tb is
+architecture behavioral of h_enc_tb is
 
-	COMPONENT hamming
+	COMPONENT h_enc
 	port (
 		d : in std_logic_vector(14 - 1 downto 0);
 		code : out std_logic_vector(19 - 1 downto 0)
@@ -33,7 +33,7 @@ architecture behavioral of hamming_tb is
 begin
 	-- Instantiate the Unit Under Test (UUT)
 	
-	uut : decoder
+	uut : h_enc
 	port map (
 		d => d_sym,
 		code => code_sym
@@ -43,25 +43,25 @@ begin
 	stim_proc: process
 	begin		
 			d_sym <= "00000000000000";
-		wait for 50 ns;
+		wait for 10 ns;
 			d_sym <= "00000000000001";
-		wait for 50 ns;
+		wait for 10 ns;
 			d_sym <= "00000000000010";
-		wait for 50 ns;	--100ns
+		wait for 10 ns;	--100ns
 			d_sym <= "00000000000100";
-		wait for 50 ns;
+		wait for 10 ns;
 			d_sym <= "00000000001000";
-		wait for 40 ns; --140ns
+		wait for 10 ns; --140ns
 			d_sym <= "00000000010000";
-		wait for 40 ns;	--180ns
+		wait for 10 ns;	--180ns
 			d_sym <= "00000000100000";
-		wait for 50 ns;
+		wait for 10 ns;
 			d_sym <= "00000001000000";
-		wait for 20 ns;	--200ns
+		wait for 10 ns;	--200ns
 			d_sym <= "00000010000000";
-		wait for 30 ns; --230ns
+		wait for 10 ns; --230ns
 			d_sym <= "00000100000000";
-		wait for 50 ns;
+		wait for 10 ns;
 			d_sym <= "00001000000000";
 			
 -- 		wait for 30 ns; --260ns
@@ -70,7 +70,7 @@ begin
 -- 		wait for 40 ns; --300ns
 -- 			be_sym <= '1';
 
-		wait for 40 ns; --340ns
+		wait for 10 ns; --340ns
 	end process;
 
 end behavioral;
