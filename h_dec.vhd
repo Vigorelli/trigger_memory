@@ -59,7 +59,7 @@ begin
 		one_hot => corr
 	);
 	
-	corrected <= code xor corr(19 - 1 downto 0);
+	corrected <= code xor corr(19 downto 1);
 	
 	 
 -- 	code(0) <= d(0) xor d(1) xor d(3) xor d(4) xor d(6) xor d(8) xor d(10) xor d(11) xor d(13);
