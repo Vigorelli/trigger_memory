@@ -76,7 +76,6 @@ begin
 			flag_sym <= "1110";
 		wait for 10 ns;
 			flag_sym <= "1111";
-
 		wait for 10 ns;
 	end process;
 

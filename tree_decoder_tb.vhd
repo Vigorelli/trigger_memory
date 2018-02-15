@@ -44,7 +44,7 @@ begin
 		cell_width => 2
 	)
 	port map (
-		enable => enable_sym;
+		enable => enable_sym,
 		addr => addr_sym,
 		one_hot => one_hot_sym
 	);

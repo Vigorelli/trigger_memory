@@ -89,7 +89,7 @@ begin
 	generic map(
 		size => length
 	)
-	port(
+	port map(
 		data_in => w_data,
 		data_out => w_array
 	);

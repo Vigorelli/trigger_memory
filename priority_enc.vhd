@@ -31,6 +31,7 @@ begin
 	b(0) <= flag(3) or (flag(1) and (not flag(2)));
 	
 	
+	
 -- 	comp_gen:
 -- 	for i in 0 to (2**size - 1) generate
 -- 		one_hot(i) <= 	'1' when i = unsigned(addr) and enable='1' else
