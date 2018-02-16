@@ -11,6 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity flag_manager is
 port (
+		clock :in std_logic;
 		flag : in std_logic_vector(16-1 downto 0); 
 		read_flag : out std_logic;
 		read_addr : out std_logic_vector(4 - 1 downto 0)
@@ -34,6 +35,19 @@ architecture arch of flag_manager is
 
 begin
 
+	pc_start: process(clock)
+	begin
+		if rising_edge(clock) then
+			read_flag <= flag_2;
+			--o_start <= i_start;
+			--if i_start = '1' and o_start = '0' and engaged = '0' and pre_ready = '0' then
+			--	c_start <= counter;
+			--	engaged <= '1';
+			--end if;
+		end if;
+	end process;
+
+	
 	comp_gen:
  	for i in 0 to 3 generate
 		
@@ -53,7 +67,7 @@ begin
 		b => b_2
 	);
 	
-	read_flag <= flag_2;
+	--read_flag <= flag_2;
 	read_addr(3 downto 2) <= b_2;
 	read_addr(1 downto 0) <= b_1(7 downto 6) when (b_2 = "11") else
 							 b_1(5 downto 4) when (b_2 = "10") else

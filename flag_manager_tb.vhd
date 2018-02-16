@@ -14,6 +14,7 @@ architecture behavioral of flag_manager_tb is
 
 	COMPONENT flag_manager
 	port (
+		clock :in std_logic;
 		flag : in std_logic_vector(16-1 downto 0); 
 		read_flag : out std_logic;
 		read_addr : out std_logic_vector(4 - 1 downto 0)
@@ -22,7 +23,7 @@ architecture behavioral of flag_manager_tb is
 	
 	
 	--Inputs
-
+	signal clk_100 : std_logic := '0';
 	signal flag_sym : std_logic_vector(16-1 downto 0);
 	signal read_flag_sym : std_logic;
 	
@@ -30,19 +31,29 @@ architecture behavioral of flag_manager_tb is
 	signal read_addr_sym : std_logic_vector(4-1 downto 0);
 	
 	-- Clock period definitions
--- 	constant clk_100_period : time := 10 ns;
+ 	constant clk_100_period : time := 10 ns;
 
 begin
+
 	-- Instantiate the Unit Under Test (UUT)
-	
 	uut : flag_manager
 	port map (
+		clock => clk_100,
 		flag => flag_sym,
 		read_flag => read_flag_sym,
 		read_addr => read_addr_sym
 	);
 
-   -- Stimulus process
+	-- Clock process definitions
+	clk100_process :process
+	begin
+			clk_100 <= '1';
+		wait for clk_100_period/2;
+			clk_100 <= '0';
+		wait for clk_100_period/2;
+	end process;
+
+	-- Stimulus process
 	stim_proc: process
 	begin		
 			flag_sym <= "0000000000000000";
