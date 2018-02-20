@@ -61,12 +61,16 @@ begin
 			flag_sym <= "0000000100000000";
 		wait for 10 ns;
 			flag_sym <= "0010000000000000";
+		wait for 15 ns;
+			flag_sym <= "0000000000000000";
 		wait for 10 ns;
 			flag_sym <= "0000000000000100";
 		wait for 10 ns;
 			flag_sym <= "0000100000000000";
 		wait for 10 ns;
 			flag_sym <= "0000000000000011";
+		wait for 10 ns;
+			flag_sym <= "0000000000000000";
 		wait for 10 ns;
 			flag_sym <= "0000010100000000";
 		wait for 10 ns;

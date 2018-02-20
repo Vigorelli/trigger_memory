@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity flag_manager is
 port (
-		clock :in std_logic;
+		clock : in std_logic;
 		flag : in std_logic_vector(16-1 downto 0); 
 		read_flag : out std_logic;
 		read_addr : out std_logic_vector(4 - 1 downto 0)

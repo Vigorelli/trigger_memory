@@ -20,22 +20,22 @@ architecture behavioral of decoder_tb is
 		one_hot : out std_logic_vector(2**size - 1 downto 0)
 	);
 	END COMPONENT;
-	
-	
+
+
 	--Inputs
 
 	signal addr_sym : std_logic_vector(2-1 downto 0);
 	signal enable_sym : std_logic;
-	
+
 	--Outputs
 	signal one_hot_sym : std_logic_vector(2**2 - 1 downto 0);
-	
+
 	-- Clock period definitions
 -- 	constant clk_100_period : time := 10 ns;
 
 begin
 	-- Instantiate the Unit Under Test (UUT)
-	
+
 	uut : decoder
 	generic map(size => 2)
 	port map (
@@ -46,7 +46,7 @@ begin
 
    -- Stimulus process
 	stim_proc: process
-	begin		
+	begin
 			addr_sym <= "00";
 			enable_sym <= '1';
 		wait for 50 ns;
@@ -64,10 +64,10 @@ begin
 		wait for 30 ns; --230ns
 			enable_sym <= '0';
 			addr_sym <= "10";
-			
+
 -- 		wait for 30 ns; --260ns
 -- 			ae_sym <= '0';
--- 
+--
 -- 		wait for 40 ns; --300ns
 -- 			be_sym <= '1';
 
